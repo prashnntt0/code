@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Days Countdown</title>
+  <style>
+    body {
+      font-family: 'Courier New', Courier, monospace;
+      background-color: #0d0d0d;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .flip-clock {
+      font-size: 5rem;
+      background: #222;
+      padding: 1rem 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px #000;
+    }
+
+    .label {
+      font-size: 1.5rem;
+      color: #999;
+      text-align: center;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="flip-clock" id="dayCountdown">743</div>
+  <div class="label">Days Left for UPSC Prelims 2027</div>
+
+  <script>
+    function updateCountdown() {
+      const targetDate = new Date('2027-05-30');
+      const currentDate = new Date();
+      const diffTime = targetDate - currentDate;
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      document.getElementById('dayCountdown').textContent = diffDays;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 3600000);
+  </script>
+</body>
+</html>
